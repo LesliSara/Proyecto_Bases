@@ -3,6 +3,9 @@
 --@Fecha creación:  03/06/2024
 --@Descripción:     Creación de tablas
 
+Prompt Conectando con cf_proy_admin
+connect cf_proy_admin/admin
+
 -- table: aeronave 
 create table aeronave(
   aeronave_id number(10, 0) not null,
@@ -11,7 +14,13 @@ create table aeronave(
   pdf blob,
   es_de_carga number(1, 0) not null,
   es_comercial number(1, 0) not null,
-  constraint aeronave_pk primary key (aeronave_id)
+  constraint aeronave_pk primary key (aeronave_id),
+  constraint aeronave_es_de_carga_chk check(
+    es_de_carga=1 or es_de_carga=0
+  ),
+  constraint aeronave_es_comercial_chk check(
+    es_comercial=1 or es_comercial=0
+  )
 );
 
 -- table: aeronave_carga 
@@ -48,7 +57,11 @@ create table aeropuerto(
   longitud varchar2(13) not null,
   activo number(1, 0) not null,
   constraint aeropuerto_pk primary key (aeropuerto_id),
-  constraint aeropuerto_clave_chk check (length(clave) = 13)
+  constraint aeropuerto_clave_chk check (length(clave) = 13),
+  constraint aeropuerto_activo_chk check(
+    activo=1 or activo=0
+  ),
+  constraint aeropuerto_clave_uk unique(clave)
 );
 
 -- table: status_vuelo 
@@ -56,7 +69,8 @@ create table status_vuelo(
   status_vuelo_id number(40, 0) not null,
   clave varchar2(10) not null,
   descripcion varchar2(40) not null,
-  constraint status_vuelo_pk primary key (status_vuelo_id)
+  constraint status_vuelo_pk primary key (status_vuelo_id),
+  constraint status_vuelo_clave_uk unique(clave)
 );
 
 -- table: vuelo
@@ -146,6 +160,7 @@ create table empleado(
   constraint empleado_jefe_empleado_id_fk foreign key (jefe_empleado_id) 
     references empleado(empleado_id),
   constraint empleado_curp_uk unique (curp),
+  constraint empleado_rfc_uk unique (rfc),
   constraint empleado_curp_chk check(length(curp)=18),
   constraint empleado_rfc_chk check(length(rfc)=13)
 );
@@ -188,7 +203,8 @@ create table pasajero(
   apellido_paterno varchar2(40) not null,
   apellido_materno varchar2(40),
   constraint pasajero_pk primary key (pasajero_id),
-  constraint pasajero_curp_chk check(length(curp)=18)
+  constraint pasajero_curp_chk check(length(curp)=18),
+  constraint pasajero_curp_uk unique(curp)
 );
 
 -- table: vuelo_pasajero 
@@ -203,7 +219,10 @@ create table vuelo_pasajero(
   constraint vuelo_pasajero_pasajero_id_fk foreign key (pasajero_id)
     references pasajero(pasajero_id),
   constraint vuelo_pasajero_vuelo_id_fk foreign key (vuelo_id)
-    references vuelo(vuelo_id)
+    references vuelo(vuelo_id),
+  constraint vuelo_pasajero_presento_chk check(
+    presento=1 or presento=0
+  )
 );
 
 -- table: pase_abordo 
@@ -215,7 +234,8 @@ create table pase_abordo (
   constraint pase_abordo_pk primary key (pase_abordo_id),
   constraint pase_abordo_vuelo_pasajero_id_fk foreign key (vuelo_pasajero_id)
     references vuelo_pasajero(vuelo_pasajero_id),
-  constraint pase_abordo_folio_abordo_chk check(length(folio_abordo)=8)
+  constraint pase_abordo_folio_abordo_chk check(length(folio_abordo)=8),
+  constraint pase_abordo_folio_abordo_uk unique(folio_abordo)
 );
 
 -- table: equipaje 
@@ -252,5 +272,10 @@ create table paquete(
     references tipo_paquete(tipo_paquete_id),
   constraint paquete_vuelo_id_fk foreign key (vuelo_id)
     references vuelo(vuelo_id),
-  constraint paquete_folio_chk check(length(folio)=18)
+  constraint paquete_folio_chk check(length(folio)=18),
+  constraint paquete_folio_uk unique(folio)
 );
+
+commit;
+
+Prompt Listo!

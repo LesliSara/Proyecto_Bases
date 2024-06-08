@@ -1,6 +1,6 @@
 --@Autor(es):       Lesliee Sarahí Cruz Buenavista
 --                  Brenda Lucrecia Flores Rivera
---@Fecha creación:  06/07/2024
+--@Fecha creación:  06/06/2024
 --@Descripción:     Prueba de un trigger que valida la aeronave comercial
 
 set serveroutput on

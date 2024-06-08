@@ -9,8 +9,6 @@ create or replace procedure corregir_hora_llegada_por_fecha(
     p_fecha_nueva in date
 ) is
 
-declare
-
   cursor c_vuelos is
     select vuelo_id, fecha_llegada
     from vuelo;

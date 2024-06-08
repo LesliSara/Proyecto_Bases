@@ -5,8 +5,6 @@
 
 create or replace procedure p_empleado_aumento is
 
-declare
-
   cursor c_empleados is
     -- Seleccionar los empleados y calcular su promedio de desempeño
     select e.empleado_id, e.puesto_id,
@@ -21,7 +19,9 @@ begin
       if r.puesto_id = 1 then
         -- Aumentar el sueldo en un 10% si es piloto
         update empleado
-        set sueldo = sueldo * 1.1
+        set nuevo_sueldo = (
+          select sueldo from puesto 
+          where puesto_id=r.puesto_id)* 1.1
         where empleado_id = r.empleado_id;
         dbms_output.put_line('Sueldo del piloto con id: ' 
           || r.empleado_id 
@@ -29,7 +29,9 @@ begin
       else
         -- Aumentar el sueldo en un 5% para otros empleados
         update empleado
-        set sueldo = sueldo * 1.05
+        set nuevo_sueldo = (
+          select sueldo from puesto 
+          where puesto_id=r.puesto_id)* 1.05
         where empleado_id = r.empleado_id;
         dbms_output.put_line('Sueldo del empleado con id: ' 
           || r.empleado_id 

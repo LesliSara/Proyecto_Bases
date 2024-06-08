@@ -156,6 +156,7 @@ create table empleado(
   foto blob,
   jefe_empleado_id number(10, 0),
   puesto_id number(10, 0) not null,
+  nuevo_sueldo number(8, 2),
   constraint empleado_pk primary key (empleado_id),
   constraint empleado_jefe_empleado_id_fk foreign key (jefe_empleado_id) 
     references empleado(empleado_id),

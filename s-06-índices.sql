@@ -26,5 +26,7 @@ create unique index vuelo_tripulacion_empleado_iuk
   on vuelo_tripulacion(vuelo_id,empleado_id);
 create unique index vuelo_pasajero_asiento_iuk
   on vuelo_pasajero(num_asiento,vuelo_id);
+  create unique index vuelo_pasajero_iuk
+  on vuelo_pasajero(pasajero_id,vuelo_id);
 
 Prompt Listo!

@@ -130,7 +130,8 @@ create table puesto(
   ) virtual ,
   descripcion varchar2(250) not null,
   sueldo number(8, 2) not null,
-  constraint puesto_pk primary key (puesto_id)
+  constraint puesto_pk primary key (puesto_id),
+  constraint puesto_nombre_uk unique (nombre)
 );
 
 -- table: rol 
@@ -142,7 +143,8 @@ create table rol(
     ||to_char(rol_id, 'fm00')
     ||substr(nombre,1,3)
   ) virtual,
-  constraint rol_pk primary key (rol_id)
+  constraint rol_pk primary key (rol_id),
+  constraint rol_nombre_uk unique (nombre)
 );
 
 -- table: empleado 

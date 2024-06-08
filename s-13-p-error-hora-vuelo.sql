@@ -16,7 +16,7 @@ create or replace procedure corregir_hora_llegada_por_fecha(
 begin
   -- recorrer el cursor y actualizar la hora de llegada si la fecha coincide
   for r in c_vuelos loop
-    if r.fecha_llegada= p_fecha_origen then
+    if r.fecha_llegada= p_fecha_vieja then
       -- actualizar la hora de llegada del vuelo
       update vuelo
       set fecha_llegada = p_fecha_nueva
@@ -24,7 +24,7 @@ begin
  
       -- mostrar mensaje de éxito
       dbms_output.put_line('Hora de llegada del vuelo con id ' 
-        || rec.vuelo_id 
+        || r.vuelo_id 
         || ' cambiada de ' 
         || to_char(r.fecha_llegada, 'dd/mm/yyyy hh24:mi') 
         || ' a ' 

@@ -36,16 +36,16 @@ create user cf_proy_invitado identified by invitado;
 Prompt creando roles
 create role cf_proy_rol_admin not identified;
 grant create session, create table, create procedure, create sequence,
-	create trigger, create view, create synonym to cf_proy_rol_admin;
+	create trigger, create view, create synonym, create public synonym to cf_proy_rol_admin;
 
 create role cf_proy_rol_invitado not identified;
-grant create session cf_proy_rol_invitado;
+grant create session to cf_proy_rol_invitado;
 
 --Asignación de roles a usuarios
 Prompt Asignando roles
 
-grant cf_proy_admin to cf_proy_rol_admin;
-grant cf_proy_invitado to cf_proy_rol_invitado;
+grant cf_proy_rol_admin to cf_proy_admin;
+grant cf_proy_rol_invitado to cf_proy_invitado;
 
 Prompt Listo!
 

@@ -15,8 +15,8 @@ create or replace procedure p_empleado_aumento is
 
 begin
   for r in c_empleados loop
-    if r.promedio_desempenio > 90 or r.puesto_id = 1 then
-      if r.puesto_id = 1 then
+    if r.promedio_desempenio > 85 or r.puesto_id = 1 then
+      if r.puesto_id = 1 and r.promedio_desempenio>85 then
         -- Aumentar el sueldo en un 10% si es piloto
         update empleado
         set nuevo_sueldo = (

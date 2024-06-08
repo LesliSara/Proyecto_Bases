@@ -10,7 +10,7 @@ Prompt Prueba 1. Inserción de un paquete en vuelo de carga
 Prompt ========================================================
 
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (1000, 'PKG000000000001', 5.5, 1, 6);
+values (1000, 'PAQUETE00000000001', 5.5, 1, 6);
 
 declare 
   v_count number;
@@ -44,7 +44,7 @@ declare
 begin
   
   insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-  values (1001, 'PKG000000000002', 5.5, 1, 1);
+  values (1001, 'PAQUETE00000000002', 5.5, 1, 1);
 
   raise_application_error(-20010, 'ERROR: se insertó un paquete en un vuelo comercial'||
     'Trigger no está funcionando correctamente.');
@@ -66,6 +66,6 @@ show errors
 
 select * from paquete;
 
-rollback
+rollback;
 
 Prompt Prueba Completada!

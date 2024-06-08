@@ -10,6 +10,8 @@ Prompt ================================================================
 Prompt Prueba 1: Corrección de la hora de llegada de vuelos existentes
 Prompt ================================================================
 
+select * from vuelo;
+
 begin
   corregir_hora_llegada_por_fecha(to_date('10/06/2024 12:00', 'dd/mm/yyyy hh24:mi'),
    to_date('10/06/2024 11:00', 'dd/mm/yyyy hh24:mi'));
@@ -33,6 +35,6 @@ show errors
 
 select * from vuelo;
 
-rollback
+rollback;
 
 Prompt Prueba Completada!

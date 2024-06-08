@@ -13,6 +13,7 @@ create or replace directory ext_dir as '/unam-bd/proyecto';
 grant read, write on directory ext_dir to cf_proy_admin;
 
 prompt Conectando como cf_proy_admin para crear la tabla externa
+connect cf_proy_admin/admin
 -- las columnas deben ser nulas y sin constraint
 create table aeronave_ext(
   aeronave_id number(10, 0),

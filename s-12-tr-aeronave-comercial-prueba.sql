@@ -11,7 +11,7 @@ Prompt ========================================================
 
 insert into vuelo_pasajero (vuelo_pasajero_id, num_asiento, presento, 
   atencion_especial, pasajero_id, vuelo_id)
-values (1000, 13, 1, null, 2, 1);
+values (1000, 13, 1, null, 4, 1);
 
 declare 
   v_count number;
@@ -66,8 +66,8 @@ end;
 /
 show errors
 
-select * from vuelo_pasaje;
+select * from vuelo_pasajero;
 
-rollback
+rollback;
 
 Prompt Prueba Completada!

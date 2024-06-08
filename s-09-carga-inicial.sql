@@ -45,17 +45,17 @@ values (6, 5, 3.5, 4.0, 6.0, 400, 3);
 
 -- Inserciones en la tabla: aeropuerto
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER001', 'Aeropuerto Internacional CDMX', '19.436', '-99.072', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO001', 'Aeropuerto Internacional CDMX', '19.436', '-99.072', 1);
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER002', 'Aeropuerto Internacional GDL', '20.524', '-103.310', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO002', 'Aeropuerto Internacional GDL', '20.524', '-103.310', 1);
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER003', 'Aeropuerto Internacional MTY', '25.778', '-100.107', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO003', 'Aeropuerto Internacional MTY', '25.778', '-100.107', 1);
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER004', 'Aeropuerto Internacional CUN', '21.036', '-86.877', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO004', 'Aeropuerto Internacional CUN', '21.036', '-86.877', 1);
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER005', 'Aeropuerto Internacional LAX', '33.941', '-118.408', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO005', 'Aeropuerto Internacional LAX', '33.941', '-118.408', 1);
 insert into aeropuerto (aeropuerto_id, clave, nombre, latitud, longitud, activo)
-  values (aeropuerto_seq.nextval, 'AEROPUER006', 'Aeropuerto Internacional JFK', '40.641', '-73.778', 1);
+  values (aeropuerto_seq.nextval, 'AEROPUERTO006', 'Aeropuerto Internacional JFK', '40.641', '-73.778', 1);
 
 -- Inserciones en la tabla: status_vuelo
 insert into status_vuelo (status_vuelo_id, clave, descripcion)
@@ -70,72 +70,73 @@ insert into status_vuelo (status_vuelo_id, clave, descripcion)
   values (status_vuelo_seq.nextval, 'CANCELADO', 'Vuelo cancelado');
 
 -- Inserciones en la tabla: vuelo
+
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar, 
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('10/06/2024 06:00', 'dd/mm/yyyy hh24:mi'), 
   to_date('10/06/2024 12:00', 'dd/mm/yyyy hh24:mi'), to_date('10/06/2024 06:00', 'dd/mm/yyyy hh24:mi'), 
-  5, 1, 2, 3, 1);-- A TIEMPO
+  5, 1, 2, 3, 1);
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar, 
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('11/06/2024 07:30', 'dd/mm/yyyy hh24:mi'), 
   to_date('11/06/2024 14:00', 'dd/mm/yyyy hh24:mi'), to_date('11/06/2024 08:00', 'dd/mm/yyyy hh24:mi'), 
-  6, 2, 1, 4, 2);--DEMORADO
+  6, 2, 1, 4, 2);
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar,
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('01/07/2024 08:00', 'dd/mm/yyyy hh24:mi'),
   to_date('01/07/2024 12:00', 'dd/mm/yyyy hh24:mi'), to_date('01/07/2024 06:00', 'dd/mm/yyyy hh24:mi'),
-  7, 3, 4, 5, 1); -- CANCELADO
+  7, 3, 4, 5, 1);
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar,
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('02/07/2024 07:30', 'dd/mm/yyyy hh24:mi'),
   to_date('02/07/2024 14:00', 'dd/mm/yyyy hh24:mi'), to_date('02/07/2024 08:00', 'dd/mm/yyyy hh24:mi'),
-  8, 4, 3, 2, 4); --ABORDANDO
+  8, 4, 3, 2, 4);
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar,
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('03/07/2024 04:00', 'dd/mm/yyyy hh24:mi'),
   to_date('03/07/2024 12:00', 'dd/mm/yyyy hh24:mi'), to_date('03/07/2024 06:00', 'dd/mm/yyyy hh24:mi'),
-  null, 5, 6, 1, 4); --PROGRAMADO
+  null, 5, 6, 1, 4);
 insert into vuelo (vuelo_id, fecha_status, fecha_llegada, fecha_salida, sala_abordar,
   aeropuerto_origen_id, aeropuerto_destino_id, status_vuelo_id, aeronave_id)
 values (vuelo_seq.nextval, to_date('04/07/2024 08:00', 'dd/mm/yyyy hh24:mi'),
   to_date('04/07/2024 14:00', 'dd/mm/yyyy hh24:mi'), to_date('04/07/2024 08:00', 'dd/mm/yyyy hh24:mi'),
-  10, 6, 5, 2, 6); --ABORDANDO
+  10, 6, 5, 2, 6);
 
 -- Historial de estatus para el vuelo 1
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('01/06/2024 08:00', 'dd/mm/yyyy hh24:mi'), 1, 1); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('01/06/2024 08:00', 'dd/mm/yyyy hh24:mi'), 1, 1);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('10/06/2024 05:30', 'dd/mm/yyyy hh24:mi'), 2, 1); -- ABORDANDO
+values (historial_status_vuelo_seq.nextval, to_date('10/06/2024 05:30', 'dd/mm/yyyy hh24:mi'), 2, 1);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('10/06/2024 06:00', 'dd/mm/yyyy hh24:mi'), 3, 1); -- A TIEMPO
+values (historial_status_vuelo_seq.nextval, to_date('10/06/2024 06:00', 'dd/mm/yyyy hh24:mi'), 3, 1);
 
 -- Historial de estatus para el vuelo 2
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('02/06/2024 10:00', 'dd/mm/yyyy hh24:mi'), 1, 2); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('02/06/2024 10:00', 'dd/mm/yyyy hh24:mi'), 1, 2);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('11/06/2024 07:30', 'dd/mm/yyyy hh24:mi'), 4, 2); -- DEMORADO
+values (historial_status_vuelo_seq.nextval, to_date('11/06/2024 07:30', 'dd/mm/yyyy hh24:mi'), 4, 2);
 
 -- Historial de estatus para el vuelo 3
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('01/07/2024 07:00', 'dd/mm/yyyy hh24:mi'), 1, 3); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('01/07/2024 07:00', 'dd/mm/yyyy hh24:mi'), 1, 3);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('01/07/2024 08:00', 'dd/mm/yyyy hh24:mi'), 5, 3); -- CANCELADO
+values (historial_status_vuelo_seq.nextval, to_date('01/07/2024 08:00', 'dd/mm/yyyy hh24:mi'), 5, 3);
 
 -- Historial de estatus para el vuelo 4
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('02/07/2024 04:30', 'dd/mm/yyyy hh24:mi'), 1, 4); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('02/07/2024 04:30', 'dd/mm/yyyy hh24:mi'), 1, 4);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('02/07/2024 07:30', 'dd/mm/yyyy hh24:mi'), 2, 4); -- ABORDANDO
+values (historial_status_vuelo_seq.nextval, to_date('02/07/2024 07:30', 'dd/mm/yyyy hh24:mi'), 2, 4);
 
 -- Historial de estatus para el vuelo 5
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('03/07/2024 04:00', 'dd/mm/yyyy hh24:mi'), 1, 5); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('03/07/2024 04:00', 'dd/mm/yyyy hh24:mi'), 1, 5);
 
 -- Historial de estatus para el vuelo 6
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('04/07/2024 06:00', 'dd/mm/yyyy hh24:mi'), 1, 6); -- PROGRAMADO
+values (historial_status_vuelo_seq.nextval, to_date('04/07/2024 06:00', 'dd/mm/yyyy hh24:mi'), 1, 6);
 insert into historial_status_vuelo (historial_status_vuelo_id, fecha_status, status_vuelo_id, vuelo_id)
-values (historial_status_vuelo_seq.nextval, to_date('04/07/2024 08:00', 'dd/mm/yyyy hh24:mi'), 2, 6); -- ABORDANDO
+values (historial_status_vuelo_seq.nextval, to_date('04/07/2024 08:00', 'dd/mm/yyyy hh24:mi'), 2, 6);
 
 
 -- Inserciones en la tabla: puesto
@@ -152,15 +153,15 @@ insert into puesto (puesto_id, nombre, descripcion, sueldo)
 
 -- Inserciones en la tabla: rol
 insert into rol (rol_id, nombre, descripcion)
-  values (puesto_seq.nextval, 'PILOTO', 'Piloto de avión');
+  values (rol_seq.nextval, 'PILOTO', 'Piloto de avión');
 insert into rol (rol_id, nombre, descripcion)
-  values (puesto_seq.nextval, 'COPILOTO', 'Copiloto de avión');
+  values (rol_seq.nextval, 'COPILOTO', 'Copiloto de avión');
 insert into rol (rol_id, nombre, descripcion)
-  values (puesto_seq.nextval, 'JEFE DE SOBRECARGO', 'Jefe de sobrecargo de vuelo');
+  values (rol_seq.nextval, 'JEFE DE SOBRECARGO', 'Jefe de sobrecargo de vuelo');
 insert into rol (rol_id, nombre, descripcion)
-  values (puesto_seq.nextval, 'SOBRECARGO', 'Sobrecargo de vuelo');
+  values (rol_seq.nextval, 'SOBRECARGO', 'Sobrecargo de vuelo');
 insert into rol (rol_id, nombre, descripcion)
-  values (puesto_seq.nextval, 'TECNICO', 'Asegura la integridad de carga');
+  values (rol_seq.nextval, 'TECNICO', 'Asegura la integridad de carga');
 
 -- Inserciones en la tabla: empleado
 insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno, 
@@ -173,12 +174,12 @@ values (empleado_seq.nextval, 'María Jazmín', 'Jimenez', 'Aguirre', 'MLHH89010
   'MLHH890101MDFRZN02', null, 1, 2);
 insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno,
   rfc, curp, foto, jefe_empleado_id, puesto_id)
-values (empleado_seq.nextval, 'Carlos', 'Ramírez', 'Sánchez', 'CRS800101T00',
-  'CRS800101HDFRZN05', null, null, 3);
+values (empleado_seq.nextval, 'Carlos', 'Ramírez', 'Sánchez', 'CRSP800101T00',
+  'CRSP800101HDFRZN05', null, null, 3);
 insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno,
   rfc, curp, foto, jefe_empleado_id, puesto_id)
-values (empleado_seq.nextval, 'Ivan Antonio', 'Fernández', 'Cano', 'LGP900101T90',
-  'LGP900101MDFRZN06', null, 3, 4);
+values (empleado_seq.nextval, 'Ivan Antonio', 'Fernández', 'Cano', 'LAGP900101T90',
+  'LAGP900101MDFRZN06', null, 3, 4);
 insert into empleado (empleado_id, nombre, apellido_paterno, apellido_materno, 
   rfc, curp, foto, jefe_empleado_id, puesto_id)
 values (empleado_seq.nextval, 'Marcela', 'Guzmán', 'Martínez', 'MAGM890101T87', 
@@ -224,130 +225,130 @@ values (empleado_seq.nextval, 'Gabriel', 'Suárez', 'Castro', 'GSCT890101T87',
 
 -- Vuelo 1
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 90, 1, 1, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 90, 1, 1, 1); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 85, 1, 2, 2); -- COPILOTO
+values (vuelo_tripulacion_seq.nextval, 85, 1, 2, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 95, 1, 3, 3); -- JEFE DE SOBRECARGO
+values (vuelo_tripulacion_seq.nextval, 95, 1, 3, 3); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 80, 1, 4, 4); -- SOBRECARGO 1
+values (vuelo_tripulacion_seq.nextval, 80, 1, 4, 4); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 82, 1, 5, 4); -- SOBRECARGO 2
+values (vuelo_tripulacion_seq.nextval, 82, 1, 5, 4); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 78, 1, 6, 4); -- SOBRECARGO 3
+values (vuelo_tripulacion_seq.nextval, 78, 1, 6, 4); 
 
 -- Vuelo 2
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 92, 2, 7, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 92, 2, 7, 1); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 87, 2, 8, 2); -- COPILOTO
+values (vuelo_tripulacion_seq.nextval, 87, 2, 8, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 96, 2, 9, 3); -- JEFE DE SOBRECARGO
+values (vuelo_tripulacion_seq.nextval, 96, 2, 9, 3); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 2, 10, 4); -- SOBRECARGO 1
+values (vuelo_tripulacion_seq.nextval, 83, 2, 10, 4);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 84, 2, 11, 4); -- SOBRECARGO 2
+values (vuelo_tripulacion_seq.nextval, 84, 2, 11, 4);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 79, 2, 12, 4); -- SOBRECARGO 3
+values (vuelo_tripulacion_seq.nextval, 79, 2, 12, 4);
 
 -- Vuelo 3
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 91, 3, 2, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 91, 3, 2, 1); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 86, 3, 4, 2); -- COPILOTO
+values (vuelo_tripulacion_seq.nextval, 86, 3, 4, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 94, 3, 6, 3); -- JEFE DE SOBRECARGO
+values (vuelo_tripulacion_seq.nextval, 94, 3, 6, 3); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 81, 3, 7, 4); -- SOBRECARGO 1
+values (vuelo_tripulacion_seq.nextval, 81, 3, 7, 4); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 3, 9, 4); -- SOBRECARGO 2
+values (vuelo_tripulacion_seq.nextval, 83, 3, 9, 4); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 77, 3, 12, 4); -- SOBRECARGO 3
+values (vuelo_tripulacion_seq.nextval, 77, 3, 12, 4);
 
 -- Vuelo 4
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 90, 4, 1, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 90, 4, 1, 1); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 85, 4, 2, 2); -- COPILOTO 1
+values (vuelo_tripulacion_seq.nextval, 85, 4, 2, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 86, 4, 7, 2); -- COPILOTO 2
+values (vuelo_tripulacion_seq.nextval, 86, 4, 7, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 4, 3, 5); -- TECNICO 1
+values (vuelo_tripulacion_seq.nextval, 88, 4, 3, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 87, 4, 4, 5); -- TECNICO 2
+values (vuelo_tripulacion_seq.nextval, 87, 4, 4, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 4, 5, 5); -- TECNICO 3
+values (vuelo_tripulacion_seq.nextval, 88, 4, 5, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 89, 4, 6, 5); -- TECNICO 4
+values (vuelo_tripulacion_seq.nextval, 89, 4, 6, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 90, 4, 8, 5); -- TECNICO 5
+values (vuelo_tripulacion_seq.nextval, 90, 4, 8, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 85, 4, 9, 5); -- TECNICO 6
+values (vuelo_tripulacion_seq.nextval, 85, 4, 9, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 4, 10, 5); -- TECNICO 7
+values (vuelo_tripulacion_seq.nextval, 83, 4, 10, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 4, 11, 5); -- TECNICO 8
+values (vuelo_tripulacion_seq.nextval, 83, 4, 11, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 77, 4, 12, 5); -- TECNICO 9
+values (vuelo_tripulacion_seq.nextval, 77, 4, 12, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 91, 4, 14, 5); -- TECNICO 10
+values (vuelo_tripulacion_seq.nextval, 91, 4, 14, 5);
 
 -- Vuelo 5
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 92, 5, 11, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 92, 5, 11, 1);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 87, 5, 12, 2); -- COPILOTO 1
+values (vuelo_tripulacion_seq.nextval, 87, 5, 12, 2);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 86, 5, 14, 2); -- COPILOTO 2
+values (vuelo_tripulacion_seq.nextval, 86, 5, 14, 2);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 5, 1, 5); -- TECNICO 1
+values (vuelo_tripulacion_seq.nextval, 88, 5, 1, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 87, 5, 2, 5); -- TECNICO 2
+values (vuelo_tripulacion_seq.nextval, 87, 5, 2, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 86, 5, 3, 5); -- TECNICO 3
+values (vuelo_tripulacion_seq.nextval, 86, 5, 3, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 85, 5, 4, 5); -- TECNICO 4
+values (vuelo_tripulacion_seq.nextval, 85, 5, 4, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 89, 5, 5, 5); -- TECNICO 5
+values (vuelo_tripulacion_seq.nextval, 89, 5, 5, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 5, 6, 5); -- TECNICO 6
+values (vuelo_tripulacion_seq.nextval, 88, 5, 6, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 87, 5, 8, 5); -- TECNICO 7
+values (vuelo_tripulacion_seq.nextval, 87, 5, 8, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 5, 9, 5); -- TECNICO 8
+values (vuelo_tripulacion_seq.nextval, 88, 5, 9, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 89, 5, 10, 5); -- TECNICO 9
+values (vuelo_tripulacion_seq.nextval, 89, 5, 10, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 90, 5, 7, 5); -- TECNICO 10
+values (vuelo_tripulacion_seq.nextval, 90, 5, 7, 5); 
 
 
 -- Vuelo 6
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 91, 6, 1, 1); -- PILOTO
+values (vuelo_tripulacion_seq.nextval, 91, 6, 1, 1); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 84, 6, 2, 2); -- COPILOTO 1
+values (vuelo_tripulacion_seq.nextval, 84, 6, 2, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 6, 3, 2); -- COPILOTO 2
+values (vuelo_tripulacion_seq.nextval, 83, 6, 3, 2); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 85, 6, 4, 5); -- TECNICO 1
+values (vuelo_tripulacion_seq.nextval, 85, 6, 4, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 84, 6, 5, 5); -- TECNICO 2
+values (vuelo_tripulacion_seq.nextval, 84, 6, 5, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 83, 6, 6, 5); -- TECNICO 3
+values (vuelo_tripulacion_seq.nextval, 83, 6, 6, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 82, 6, 7, 5); -- TECNICO 4
+values (vuelo_tripulacion_seq.nextval, 82, 6, 7, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 81, 6, 8, 5); -- TECNICO 5
+values (vuelo_tripulacion_seq.nextval, 81, 6, 8, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 80, 6, 9, 5); -- TECNICO 6
+values (vuelo_tripulacion_seq.nextval, 80, 6, 9, 5); 
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 79, 6, 10, 5); -- TECNICO 7
+values (vuelo_tripulacion_seq.nextval, 79, 6, 10, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 95, 6, 11, 5); -- TECNICO 8
+values (vuelo_tripulacion_seq.nextval, 95, 6, 11, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 88, 6, 12, 5); -- TECNICO 9
+values (vuelo_tripulacion_seq.nextval, 88, 6, 12, 5);
 insert into vuelo_tripulacion (vuelo_tripulacion_id, desempenio, vuelo_id, empleado_id, rol_id)
-values (vuelo_tripulacion_seq.nextval, 75, 6, 13, 5); -- TECNICO 10
+values (vuelo_tripulacion_seq.nextval, 75, 6, 13, 5);
 
 
 
@@ -473,21 +474,74 @@ values (tipo_paquete_seq.nextval, 'Vidrio', 'Frágil');
 
 -- Inserciones en la tabla: paquete
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG001234567890', 5.5, 1, 5);
+values (paquete_seq.nextval, 'PAQUETE34567890ABC', 5.5, 1, 5);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG009876543210', 2.3, 2, 4);
+values (paquete_seq.nextval, 'PAQUETE00987654321', 2.3, 2, 4);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG003456789012', 6.0, 3, 4);
+values (paquete_seq.nextval, 'PAQUETE03456789012', 6.0, 3, 4);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG004321098765', 4.5, 4, 6);
+values (paquete_seq.nextval, 'PAQUETE04321098765', 4.5, 4, 6);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG005678901234', 3.8, 1, 6);
+values (paquete_seq.nextval, 'PAQUETE05678901234', 3.8, 1, 6);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG006789012345', 7.2, 2, 6);
+values (paquete_seq.nextval, 'PAQUETE06789012345', 7.2, 2, 6);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG007890123456', 5.1, 3, 5);
+values (paquete_seq.nextval, 'PAQUETE07890123456', 5.1, 3, 5);
 insert into paquete (paquete_id, folio, peso, tipo_paquete_id, vuelo_id)
-values (paquete_seq.nextval, 'PKG008901234567', 6.9, 4, 6);
+values (paquete_seq.nextval, 'PAQUETE08901234567', 6.9, 4, 6);
+
+-- Inserciones en la tabla: monitore_vuelo
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (1, 1, sysdate, '19.436', '-99.072');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (2, 1, sysdate, '19.437', '-99.073');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (3, 1, sysdate, '19.438', '-99.074');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (4, 1, sysdate, '19.439', '-99.075');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (5, 1, sysdate, '19.440', '-99.076');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (6, 1, sysdate, '19.441', '-99.077');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (7, 1, sysdate, '19.442', '-99.078');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (8, 1, sysdate, '19.443', '-99.079');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (9, 1, sysdate, '19.444', '-99.080');
+insert into monitoreo_vuelo (num_monitoreo, vuelo_id, fecha, latitud, longitud)
+values (10, 1, sysdate, '19.445', '-99.081');
+
+-- Insertar datos en la tabla direccion_internet
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado1-1.com', 1);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado1-2.com', 1);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado1-3.com', 1);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado2-1.com', 2);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado4-1.com', 4);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado4-2.com', 4);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado5-1.com', 5);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado7-1.com', 7);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado7-2.com', 7);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado7-3.com', 7);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado7-4.com', 7);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado9-1.com', 9);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado9-2.com', 9);
+insert into direccion_internet (direccion_internet_id, url, empleado_id)
+values (direccion_internet_seq.nextval, 'http://www.empleado11-1.com', 11);
+
 
 commit;
 

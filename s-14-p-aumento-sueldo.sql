@@ -10,6 +10,9 @@ Prompt Prueba 1: Aumento de sueldo para pilotos con promedio alto
 Prompt           y empleados con promedio alto
 Prompt ===========================================================
 
+Prompt Antes
+select * from empleado;
+
 begin
   p_empleado_aumento;
 end;
@@ -17,6 +20,7 @@ end;
 show errors
 
 select * from empleado;
-rollback
+
+rollback;
 
 Prompt Prueba Completada!

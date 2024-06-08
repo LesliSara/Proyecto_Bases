@@ -3,7 +3,6 @@
 --@Fecha creación:  03/06/2024
 --@Descripción:     Creación de consultas
 
-@s-03-tablas-temporales.sql
 
 Prompt Consulta 1
 -- Se desea ver el promedio de desempeño de todo los empleados
@@ -31,7 +30,7 @@ Prompt Consulta 2
 -- vuelos cancelados o demorados se les dará un apoyo ecónomico
 -- y además que hayan tomado más de dos vuelos
 
-select p.nombre, p.apellido_paterno, p.apellido_materno, q.vuelo_id
+select distinct p.nombre, p.apellido_paterno, p.apellido_materno
 from pasajero p, (
   (select vp.vuelo_id, vp.pasajero_id
   from cf_vuelo_pasajero vp, p_vuelo v, cf_status_vuelo sv
@@ -50,7 +49,7 @@ from pasajero p, (
   from cf_vuelo_pasajero vp
   minus
   select vp.vuelo_id, t.pasajero_id
-  from vp.cf_vuelo_pasajero, (
+  from cf_vuelo_pasajero vp, (
     select count(*) as num_vuelos, pasajero_id
     from cf_vuelo_pasajero
     group by pasajero_id
@@ -78,10 +77,11 @@ Prompt Consulta 4
 
 select p.*, v.* , e.peso as peso_equipaje
 from pasajero p 
-left join vuelo_pasajero on vp.pasajero_id=p.pasajero_id
+left join vuelo_pasajero vp on vp.pasajero_id=p.pasajero_id
 left join vuelo v on vp.vuelo_id=v.vuelo_id
 left join pase_abordo pa on vp.vuelo_pasajero_id=pa.vuelo_pasajero_id
-left join equipaje e on pa.pase_abordo_id=e.pase_abordo_id;
+left join equipaje e on pa.pase_abordo_id=e.pase_abordo_id
+order by p.pasajero_id;
 
 Prompt Consulta 5
 -- Tabla temporal 

@@ -10,7 +10,7 @@ declare
   v_tiempo_vuelo varchar2(20);
 begin
   -- recuperar los datos de vuelos de la tabla de vuelos
-  for rc in (select vuelo_id, fecha_salida, fecha_llegada from vuelo) loop
+  for r in (select vuelo_id, fecha_salida, fecha_llegada from vuelo) loop
     -- asignar los valores recuperados a las variables
     v_vuelo_id := r.vuelo_id;
     v_fecha_salida := r.fecha_salida;

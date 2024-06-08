@@ -9,8 +9,8 @@ begin
   -- insertar un vuelo_pasajero de prueba
   insert into vuelo_pasajero (vuelo_pasajero_id, num_asiento, presento, atencion_especial,
     pasajero_id, vuelo_id)
-	values (1011, 2, 1, null, 8, 1);
-  
+	values (1010, 2, 1, null, 8, 1);
+
   -- llamar a la función para generar el pase de abordo
   v_folio := generar_folio_pase_abordo(1010);
 

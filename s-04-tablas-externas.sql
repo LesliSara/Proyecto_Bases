@@ -48,10 +48,13 @@ prompt configurando el directorio
 
 prompt creando archivo de prueba
 !touch /unam-bd/proyecto/aeronave_ext.csv
-!echo "1000,AAF2006K3B,XXXX000X0X00X,,1" > /unam-bd/proyecto/aeronave_ext.csv
-!echo "1001,DANI45EL86,ASLJV75SDS7DSW,,0" >> /unam-bd/proyecto/aeronave_ext.csv
-!echo "1002,FER1208005,DSDSDS86868DS,,0" >> /unam-bd/proyecto/aeronave_ext.csv
-!echo "1OO3,BUENO59045,CANUPIX3000,,A" >> /unam-bd/proyecto/aeronave_ext.csv
+!echo "1000,AAF2006K3B,Boeing 373,,1" > /unam-bd/proyecto/aeronave_ext.csv
+!echo "1001,DANI45EL86,Airbus 484,,0" >> /unam-bd/proyecto/aeronave_ext.csv
+!echo "1002,FER1208005, BoeinG 343,,0" >> /unam-bd/proyecto/aeronave_ext.csv
+!echo "1004,AAF2006K3B,Boeing 703,,1" > /unam-bd/proyecto/aeronave_ext.csv
+!echo "1005,DANI45EL86,Airbus 800,,0" >> /unam-bd/proyecto/aeronave_ext.csv
+!echo "1006,FER1208005,boeing 967,,0" >> /unam-bd/proyecto/aeronave_ext.csv
+!echo "1OO3,BUENO59045,Boeing,,A" >> /unam-bd/proyecto/aeronave_ext.csv
 !echo ",DSFBODSB75,HOLASIHOLA,,2" >> /unam-bd/proyecto/aeronave_ext.csv
 
 prompt Mostrando datos

@@ -3,7 +3,10 @@
 --@Fecha creación:  03/06/2024
 --@Descripción:     Creación tabla temporal
 
-Prompt Uso de tabla temporar en vuelo_tripulacion
+Prompt Conectando con cf_proy_admin
+connect cf_proy_admin/admin
+
+Prompt Uso de tabla temporal en vuelo_tripulacion
 create private temporary table ora$ptt_vuelo_tripulacion_temporal(
   vuelo_tripulacion_id number(10, 0) not null,
   desempenio number(3, 0) not null,
@@ -27,12 +30,6 @@ values(1000, 50, 1, 1, 1)
 commit;
 
 select * from ora$ptt_vuelo_tripulacion_temporal;
-
-insert into vuelo_tripulacion
-select * from ora$ptt_vuelo_tripulacion_temporal;
-
-select * from vuelo_tripulacion
-where vuelo_tripulacion_id=1000;
 
 commit;
 

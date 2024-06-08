@@ -19,7 +19,7 @@ create table aeronave_ext(
   matricula varchar2(10),
   modelo varchar2(50),
   pdf blob,
-  es_de_carga number(1, 0),
+  es_carga number(1, 0),
   es_comercial number(1, 0)
 )
 organization external(
@@ -33,7 +33,7 @@ organization external(
     lrtrim
     missing field values are null
     (
-      aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial
+      aeronave_id, matricula, modelo, pdf, es_carga, es_comercial
     )
   )
   location('aeronave_ext.csv')

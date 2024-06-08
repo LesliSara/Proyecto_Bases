@@ -12,11 +12,11 @@ create table aeronave(
   matricula varchar2(10) not null,
   modelo varchar2(50) not null,
   pdf blob,
-  es_de_carga number(1, 0) not null,
+  es_carga number(1, 0) not null,
   es_comercial number(1, 0) not null,
   constraint aeronave_pk primary key (aeronave_id),
-  constraint aeronave_es_de_carga_chk check(
-    es_de_carga=1 or es_de_carga=0
+  constraint aeronave_es_carga_chk check(
+    es_carga=1 or es_carga=0
   ),
   constraint aeronave_es_comercial_chk check(
     es_comercial=1 or es_comercial=0
@@ -33,7 +33,7 @@ create table aeronave_carga(
   cap_carga number(3, 0) not null,
   aeropuerto_resguardo_id number(10, 0) not null,
   constraint aeronave_carga_pk primary key (aeronave_id),
-  constraint aeronave_carga_aereonave_id_fk foreign key (aeronave_id) 
+  constraint aeronave_carga_aeronave_id_fk foreign key (aeronave_id) 
     references aeronave(aeronave_id)
 );
 
@@ -44,7 +44,7 @@ create table aeronave_comercial(
   cap_discapacitados number(3, 0) not null,
   cap_vip number(3, 0) not null,
   constraint aeronave_comercial_pk primary key (aeronave_id),
-  constraint aeronave_comercial_aereonave_id_fk foreign key (aeronave_id) 
+  constraint aeronave_comercial_aeronave_id_fk foreign key (aeronave_id) 
     references aeronave(aeronave_id)
 );
 
@@ -66,7 +66,7 @@ create table aeropuerto(
 
 -- table: status_vuelo 
 create table status_vuelo(
-  status_vuelo_id number(40, 0) not null,
+  status_vuelo_id number(10, 0) not null,
   clave varchar2(10) not null,
   descripcion varchar2(40) not null,
   constraint status_vuelo_pk primary key (status_vuelo_id),
@@ -82,7 +82,7 @@ create table vuelo(
   sala_abordar number(3, 0),
   aeropuerto_origen_id number(10, 0) not null,
   aeropuerto_destino_id number(10, 0) not null,
-  status_vuelo_id number(40, 0) not null,
+  status_vuelo_id number(10, 0) not null,
   aeronave_id number(10, 0) not null,
   constraint vuelo_pk primary key (vuelo_id),
   constraint vuelo_aeropuerto_origen_id_fk foreign key (aeropuerto_origen_id) 
@@ -97,9 +97,9 @@ create table vuelo(
 
 -- table: historial_status_vuelo
 create table historial_status_vuelo(
-  historial_status_vuelo_id number(40, 0) not null,
+  historial_status_vuelo_id number(10, 0) not null,
   fecha_status date default on null sysdate,
-  status_vuelo_id number(40, 0) not null,
+  status_vuelo_id number(10, 0) not null,
   vuelo_id number(5, 0) not null,
   constraint historial_status_vuelo_pk primary key (historial_status_vuelo_id),
   constraint historial_status_vuelo_status_vuelo_id_fk foreign key (status_vuelo_id) 
@@ -138,7 +138,7 @@ create table rol(
   rol_id number(2, 0) not null,
   nombre varchar2(40) not null,
   descripcion varchar2(250) not null,
-  clave generated always as ( 'ROL-'
+  clave generated always as ('ROL-'
     ||to_char(rol_id, 'fm00')
     ||substr(nombre,1,3)
   ) virtual,
@@ -188,7 +188,7 @@ create table vuelo_tripulacion(
     references vuelo(vuelo_id),
   constraint vuelo_tripulacion_empleado_id_fk foreign key (empleado_id)
     references empleado(empleado_id),
-  constraint vuelo_tripulacion_rol_id(fk) foreign key (rol_id)
+  constraint vuelo_tripulacion_rol_id_fk foreign key (rol_id)
     references rol(rol_id),
   constraint vuelo_tripulacion_desempenio_chk check(desempenio>=0 and desempenio<=100)
 );

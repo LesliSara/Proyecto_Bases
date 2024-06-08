@@ -10,18 +10,18 @@ Prompt Insertando valores iniciales
 
 -- Inserciones en la tabla: aeronave
 --es comercial
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'X12345', 'Boeing 737', null, 0, 1);
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'X98765', 'Boeing 747', null, 0, 1);
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'Y45678', 'Airbus A380', null, 0, 1);
 --es carga
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'X67890', 'Airbus A320', null, 1, 0);
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'X54321', 'Airbus a330', null, 1, 0);
-insert into aeronave (aeronave_id, matricula, modelo, pdf, es_de_carga, es_comercial)
+insert into aeronave (aeronave_id, matricula, modelo, pdf, es_carga, es_comercial)
   values (aeronave_seq.nextval, 'W78901', 'Airbus A330 Cargo', null, 1, 0);
 
 -- Inserciones en aeronave_comercial para las aeronaves comerciales

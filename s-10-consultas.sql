@@ -61,9 +61,10 @@ from pasajero p, (
 ) q
 where p.pasajero_id = q.pasajero_id;
 
-Consulta 3
+Prompt Consulta 3
 -- Se requiere ver la información monitoreada de los vuelos tomados
 -- por el el usuarios con id 5
+
 select  vuelo_id, pasajero_id, p.nombre, vmv.num_monitoreo, 
   vmv.aeronave_matricula, vmv.aeropuerto_origen, vmv.aeropuerto_llegada
 from vuelo_pasajero vp 
@@ -71,9 +72,10 @@ natural join  v_monitoreo_vuelo vmv
 join pasajero p using(pasajero_id) 
 where pasajero_id=5;
 
-Consulta 4
+Prompt Consulta 4
 -- Se desea mostras todos los datos de los pasajeros, los posibles vuelos 
--- que han tomando y los datos de equipaje si es que tienen 
+-- que han tomando y los datos de equipaje si es que tienen
+
 select p.*, v.* , e.peso as peso_equipaje
 from pasajero p 
 left join vuelo_pasajero on vp.pasajero_id=p.pasajero_id
@@ -81,19 +83,21 @@ left join vuelo v on vp.vuelo_id=v.vuelo_id
 left join pase_abordo pa on vp.vuelo_pasajero_id=pa.vuelo_pasajero_id
 left join equipaje e on pa.pase_abordo_id=e.pase_abordo_id;
 
-Consulta 5
+Prompt Consulta 5
 -- Tabla temporal 
 -- Ver el nombre del rol y desmpeño que tiene la tabla temporal
+
 select r.nombre as rol, vt.desempenio
 from ora$ptt_vuelo_tripulacion_temporal vt
 join rol r 
 on vt.rol_id = r.rol_id;
 
-Consulta 6
+Prompt Consulta 6
 --Tabla externa
 -- Mostrar el nombre de las aeronaves con modelo que contengan 
 -- la palabra boeing sin importar mayusculas y minusculas y además
 -- mostrar cuántas aeronaves son
+
 select modelo, (
   select count(*) 
   from aeronave_ext 
